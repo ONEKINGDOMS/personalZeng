@@ -1,0 +1,101 @@
+  body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background-image: url(../images/background.jpg);
+      background-position: 0px 0px;
+      background-size: cover;
+      opacity: 1;
+      z-index: -10;
+  }
+  
+  .container {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      overflow: scroll;
+      background-size: cover;
+      text-align: center;
+  }
+  
+  audio {
+      width: 300px;
+      height: 300px;
+      opacity: 0.8;
+  }
+  
+  .wrapcontent {
+      margin-top: 5%;
+      z-index: 10;
+  }
+  
+  .cirlce {
+      height: 100px;
+      width: 100px;
+      border-radius: 50px;
+      transition-duration: 2s;
+  }
+  
+  .cirlce.active {
+      height: 150px;
+      width: 150px;
+      border-radius: 75px;
+  }
+  
+  .options {
+      visibility: hidden;
+      transition-duration: 0.5s;
+  }
+  
+  .options.active {
+      visibility: visible;
+      -ms-transform: rotate(1440deg);
+      /* IE 9 */
+      -webkit-transform: rotate(1440deg);
+      /* Safari */
+      transform: rotate(1440deg);
+      transition-duration: 0.5s;
+  }
+  
+  i {
+      margin-top: 10px;
+  }
+  
+  .dishcover {
+      width: 100%;
+      height: 100%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+  }
+  
+  .dish {
+      position: relative;
+      margin-left: 20%;
+      width: 420px;
+      height: 420px;
+      border: 1px solid #C5C6C7;
+      -webkit-box-shadow: 3px 3px 20px 3px #C8FFBA;
+      box-shadow: 3px 3px 20px 3px #C8FFBA;
+      -webkit-border-radius: 210px;
+      border-radius: 210px;
+  }
+  
+  .play {
+      position: absolute;
+      font-size: 15px;
+      margin-top: 180px;
+      margin-left: 180px;
+      z-index: 100;
+      border: 5px solid #ffffff;
+  }
+  
+  .content {
+      text-align: center;
+      padding-top: 10px;
+  }
+  
+  .controls {
+      width: 60%;
+      margin-left: 20%;
+  }

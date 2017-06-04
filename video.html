@@ -1,0 +1,77 @@
+<!doctype html>{% autoescape true %}
+<html>
+
+<head>
+    <title>GIF generator</title>
+    <link rel="shortcut icon" type="image/x-icon" href="files/logo/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="files/css/bootstrap.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="files/font-awesome-4.4.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="files/css/button.css">
+    <script src="files/js/jquery-2.1.4.js"></script>
+    <script src="files/js/b64.js"></script>
+    <script src="files/js/LZWEncoder.js"></script>
+    <script src="files/js/NeuQuant.js"></script>
+    <script src="files/js/GIFEncoder.js"></script>
+</head>
+<style>
+    body {
+        background-image: url(files/images/flower.jpg);
+        background-size: cover;
+    }
+    
+    #video {
+        width: 500px;
+    }
+    
+    .row {
+        margin-top: 5%;
+    }
+</style>
+<script>
+    $(function() {
+        $("#stop").hide();
+        $("#download").hide();
+        $("#stop").click(function() {
+            $(this).hide();
+            $("#start").show();
+            $("#download").show();
+        });
+        $("#start").click(function() {
+            $(this).hide();
+            $("#download").hide();
+            $("#stop").show();
+        })
+    });
+</script>
+
+<body>
+    <div class="row">
+        <div class="col-lg-offset-2 col-lg-8 col-md-4 col-sm-4 col-xs-4">
+            <input type="file" accept="video/mp4,video/x-m4v,video/*" id="file" class="btn btn-default" />
+        </div>
+    </div>
+    <div class="row localvideo">
+        <div class="col-lg-offset-1 col-lg-6 col-md-8 col-sm-12 col-xs-12">
+            <video controls id="video"></video>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div id="panel">
+                <div class="centre">
+                    <a onclick="startcapture()" class="button button-raised button-caution" id="start"><i class="fa fa-play"></i>Start</a>
+                    <a onclick="stopcapture()" class="button button-raised button-caution" id="stop"><i class="fa fa-stop"></i>Stop</a>
+                    <a class="button button-raised button-caution" id="download" download target="_blank" href=""><i class="fa fa-download"></i>Download</a>
+                    <br>
+                    <br>
+                    <img src="files/images/compman.gif" alt=".gif" id="gifimage"></img>
+                    <canvas id="myCanvas" style="border:1px solid #d3d3d3;" hidden="hidden">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="files/js/capture.js"></script>
+</body>
+
+</html>
+{% endautoescape %}

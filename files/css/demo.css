@@ -1,0 +1,26 @@
+body {
+    background-image: url(../images/Sea.jpg);
+    filter:alpha(opacity=30);
+-moz-opacity:0.3;
+-khtml-opacity: 0.3;
+opacity: 0.3;
+}
+
+.row {
+    text-align: center;
+    font-size: 30px;
+}
+
+.col-lg-12 {
+    background-color: aquamarine;
+    height: 200px;
+    margin-bottom: 10px;
+    opacity: 0.5;
+    transition-duration: 1s;
+}
+
+.col-lg-12:Hover {
+    width: 90%;
+    margin-left: 5%;
+    opacity: 1;
+}

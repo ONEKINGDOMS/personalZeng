@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Resume</title>
+    <link rel="shortcut icon" type="image/x-icon" href="files/logo/favicon.ico" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="files/css/bootstap.min.css">
+    <link rel="stylesheet" href="files/css/button.css">
+    <link rel="stylesheet" href="files/font-awesome-4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="files/css/resume.css">
+</head>
+<script src="files/js/jquery-2.1.4.js"></script>
+<script>
+    $(function() {
+        var width = $(window).width() - 200;
+        var height = $(window).height() - 300;
+        $(".skills").each(function(index) {
+            var left = Math.random() * width;
+            var top = Math.random() * height;
+            $(this).css({
+                'left': left,
+                'top': top,
+            });
+        });
+    });
+</script>
+
+<body>
+    <div class="container">
+        <div class="st-container">
+            <input type="radio" name="radio-set" checked="checked" id="st-control-1" />
+            <a href="#st-panel-1">Info</a>
+            <input type="radio" name="radio-set" id="st-control-2" />
+            <a href="#st-panel-2">Work Experience</a>
+            <input type="radio" name="radio-set" id="st-control-3" />
+            <a href="#st-panel-3">Education</a>
+            <input type="radio" name="radio-set" id="st-control-4" />
+            <a href="#st-panel-4">Experience</a>
+            <input type="radio" name="radio-set" id="st-control-5" />
+            <a href="#st-panel-5">Skills &amp; Interesting</a>
+            <div class="st-scroll">
+                <section class="st-panel" id="st-panel-1">
+                    <div class="st-deco">
+                        <div class="icon"><i class="fa fa-user"></i></div>
+                    </div>
+                    <h2>Info:</h2>
+                    <p>Name:ZENG HONGBIN
+                        <br> Contact No:9725 0156 (h/p)
+                        <br> Email: ghbinzen@gmail.com
+                        <br>
+                        <br>I am a NUS-ISS fresh graduated java developer and very interested in web and mobile new development. In addition, I like to learning the new Technology. Looking for some jobs Opportunity for Web Development or Mobile application. </p>
+                </section>
+                <section class="st-panel" id="st-panel-2">
+                    <div class="st-deco">
+                        <div class="icon"><i class="fa fa-briefcase"></i></div>
+                    </div>
+                    <h2>Working Experience:</h2>
+                    <p>
+                        Singapore Institute of Manufacturing Technology Sep 2015 – Present
+                 
+                    ￼￼ <br>
+                    Project Decription: A mobile applicaiton to monitor a machine real-time energy consumption, which helps users to measure the performance of machine.
+                     <br> Role: Developer, Business Analyst
+                 <br>Responsibility: Design and develop the mobile application, also including implement and optimize a recursive algorithm for Normal Distribution.
+                    <br>Technology: HTML5, AngularJS, Cordova
+                    <br> Internship: Tagit Pte Ltd Apr 2015 – Aug 2015
+                     <br>Job Scope: 1. Performtestingbasedontestplanandverifythefunctionalitiesofamobilebank application in Unit Test and SIT phase.  <br>2. LogbugsintoJIRAforapplicationteamtosolve.</p> </section>
+                
+                    <section class="st-panel st-color" id="st-panel-3">
+                        <div class="st-deco">
+                            <div class="icon"><i class="fa fa-graduation-cap"></i></div>
+                        </div>
+                        <h2>Education:</h2>
+                        <p>
+                            NUS-ISS
+                            <br> Graduate Diploma in System Analysis &nbsp;&nbsp;&nbsp; Aug 2014 - Aug 2015
+                            <br> GPA: 4.79/5.0
+                            <br>
+                            <a href="files/Transcripts.pdf" class="button button-raised button-primary button-pill"><i class="fa fa-table"></i>Transcripts</a>
+                            <br>
+                            <br> ANHUI JIANZHU UNIVERSITY,CHINA
+                            <br> Bachelor of Engineering &nbsp;&nbsp;&nbsp;Sep 2009 - Jun 2013
+                            <br> GPA: 4.23/5.0
+                        </p>
+                    </section>
+
+                    <section class="st-panel st-color" id="st-panel-4">
+                        <div class="st-deco" data-icon="4">
+                            <div class="icon"><i class="fa fa-codepen"></i></div>
+                        </div>
+                        <h2 class="title"> Experience:</h2>
+                        <p>Institute of Systems Science Aug 2014 - Apr 2015
+                            <br>Main Role: Java developer ,Mobile application developer
+                            <br> Responsibility: Analysis business Workflow and implements the web application program Design the mobile application and test the issues in the Mobiles apps.
+                            <br> Projects Involved:
+                            <br>
+                            <strong>Stationery Store System</strong>: Performed as key developer in Team. Mapped the requirements of customer and the current business Workflow. Design the UI Prototype and walked through UI Design with user. Implemented the web application program and mobile application development.
+                            <br>
+                            <strong> Flickr phone</strong>: Mobile Application Individually Designed the Android application and IOS mobile application using the J2EE and Swift. Implementing the plan using the android studio and Xcode.
+                            <br>
+                            <strong>Leave application System</strong>: Played key role for coding in the JSP part. And implement the Project with Spring Mvc
+                            <br>
+                        </p>
+                    </section>
+                    <section class="st-panel" id="st-panel-5">
+                        <div class="st-deco" data-icon="5">
+                            <div class="icon"><i class="fa fa-bookmark"></i></div>
+                        </div>
+                        <div>
+                            <div class="skills"> Mobile
+                                <br>
+                                <br> Android, IOS.
+                            </div>
+                            <div class="skills"> Microsoft Technologies
+                                <br>
+                                <br>WCF service,ASP.NET
+                            </div>
+                            <div class="skills"> Database
+                                <br>
+                                <br> MySQL, SQL Server.
+                            </div>
+                            <div class="skills">IDE
+                                <br>
+                                <br> Android Studio, eclipse, Xcode.
+                            </div>
+                            <div class="skills">Programing Language
+                                <br>
+                                <br> C#, Java,Swift,SQL，Python
+                            </div>
+                            <div class="skills">Others
+                                <br>
+                                <br>HTML5,CSS,
+                                <br>JavaScript
+                            </div>
+                        </div>
+                        <h2>Skills &amp; Interests:</h2>
+                        <p>
+                            Enjoy learning New knowledge and technology
+                            <br> Enjoy work in a team,
+                            <br> Enjoy troubleshooting
+                            <br>
+                            <br>
+                            <br>
+                            <a href="files/CV.pdf" download="files/CV.pdf" class="button button-raised button-primary button-pill"><i class="fa fa-download"></i>PDF resume</a>
+                        </p>
+                    </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!doctype html>{% autoescape true %}
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="files/css/bootstrap.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="files/font-awesome-4.4.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="files/css/button.css">
+    <script src="files/js/jquery-2.1.4.js"></script>
+    <script src="files/js/jquery-ui.js"></script>
+    <script src="files/js/b64.js"></script>
+    <script src="files/js/LZWEncoder.js"></script>
+    <script src="files/js/NeuQuant.js"></script>
+    <script src="files/js/GIFEncoder.js"></script>
+</head>
+<style>
+    #video {
+        width: 500px;
+    }
+    
+    .yvideo {
+        width: 300px;
+    }
+    
+    #tabs {
+        background-color: oldlace;
+        margin-bottom: 10px;
+    }
+</style>
+<script>
+    $(function() {
+        $("#tabs").tabs();
+        $("#stop").hide();
+        $("#download").hide();
+        $("#stop").click(function() {
+            $(this).hide();
+            $("#start").show();
+            $("#download").show();
+        });
+        $("#start").click(function() {
+            $(this).hide();
+            $("#download").hide();
+            $("#stop").show();
+        })
+    });
+
+//    function Search() {
+//        var name = $("#title").val();
+//        if (name != "" && name.length > 0) {
+//            $("#myform").submit();
+//        }
+//    }
+</script>
+<body>
+    <div class="row">
+        <div class="col-lg-offset-1 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+            <div id="tabs">
+                <ul class="nav nav-tabs nav-justified">
+<!--                    <li><a href="#tabs-1">Search youtube videos</a></li>-->
+                    <li><a href="#tabs-2">Local video files</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <br>
+                    <br>
+<!--
+                    <form action="search" method="post" id="myform">
+                        <div class="row">
+                            <div class="centre col-lg-offset-4 col-lg-4">
+                                <div class="input-group">
+                                    <input type="text" name="title" id="title" class="form-control" placeholder="Search Video" required="required" autocomplete="off">
+                                    <span class="input-group-btn">
+        <button class="btn btn-default" type="button" onclick="Search()"><i class="fa fa-search"></i></button></span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+-->
+                    <br>
+                    <br>
+                    <div class="row">
+                        {% for video in videos %}
+                        <div class="col-lg-offset-1 col-lg-10">
+                            <video controls="true" class="video">
+                                <source src="http://www.youtube.com/watch?v=3bGNuRtlqAQ" type="video/mp4" />
+                            </video>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="tabs-2">
+                    <br>
+                    <br>
+                    <div class="centre col-lg-offset-4 col-lg-4">
+                        <input type="file" accept="video/mp4,video/x-m4v,video/*" id="file" class="btn btn-default" />
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-offset-1  col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                <video controls id="video"></video>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div id="panel">
+                    <div class="centre">
+                        <a onclick="startcapture()" class="button button-raised button-caution" id="start"><i class="fa fa-play"></i>Start</a>
+                        <a onclick="stopcapture()" class="button button-raised button-caution" id="stop"><i class="fa fa-stop"></i>Stop</a>
+                        <a class="button button-raised button-caution" id="download"><i class="fa fa-download"></i>Download</a>
+                        <br>
+                        <br>
+                        <img alt=".gif" id="gifimage"></img>
+                        <canvas id="myCanvas" style="border:1px solid #d3d3d3;" hidden="hidden">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("file").onchange = function() {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById("video").src = e.target.result;
+            };
+            reader.readAsDataURL(this.files[0]);
+        };
+        var v = document.getElementById("video");
+        var c = document.getElementById("myCanvas");
+        var image = document.getElementById("gifimage");
+        var ctx = c.getContext("2d");
+        var encoder = new GIFEncoder();
+        encoder.setRepeat(0);
+        encoder.setDelay(0);
+        var i;
+
+        function startcapture() {
+            encoder.start();
+            i = window.setInterval(function() {
+                ctx.drawImage(v, 0, 0, 300, 150);
+                encoder.addFrame(ctx)
+            }, 1);
+        }
+
+        function stopcapture() {
+            encoder.finish();
+            image.src = 'data:image/gif;base64,' + encode64(encoder.stream().getData());
+            console.log(encode64(encoder.stream().getData()));
+            window.clearInterval(i);
+        }
+
+        v.addEventListener("ended", function() {
+            clearInterval(i);
+        }, false);
+    </script>
+<!--
+    <script>
+        videos = document.querySelectorAll("yvideo");
+        for (var i = 0, l = videos.length; i < l; i++) {
+            video=videos[i];
+            var src = video.src || (function() {
+                var sources = video.querySelectorAll("source");
+                for (var j = 0, sl = sources.length; j < sl; j++) {
+                    var source = sources[j];
+                    var type = source.type;
+                    var isMp4 = type.indexOf("mp4") != -1;
+                    if (isMp4) return source.src;
+                }
+                return null;
+            })();
+            if (src) {
+                var isYoutube = src && src.match(/(?:youtu|youtube)(?:\.com|\.be)\/([\w\W]+)/i);
+                if (isYoutube) {
+                    var id = isYoutube[1].match(/watch\?v=|[\w\W]+/gi);
+                    id = (id.length > 1) ? id.splice(1) : id;
+                    id = id.toString();
+                    var mp4url = "http://www.youtubeinmp4.com/redirect.php?video=";
+                    video.src = mp4url + id;
+                }
+            }
+        }
+    </script>
+-->
+</body>
+</html>
+{% endautoescape %}

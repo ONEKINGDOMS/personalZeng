@@ -1,0 +1,112 @@
+ html,
+ body {
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     font-family: sans-serif;
+     overflow: hidden;
+ }
+ 
+ .search {
+     margin-left: 3%;
+     margin-top: 1%;
+     height: 20px;
+     width: 30%;
+ }
+ 
+ i {
+     margin-top: 10px;
+ }
+ 
+ #map {
+     width: 100%;
+     height: 100%;
+ }
+ 
+ #street-view {
+     width: 100%;
+     height: 55%;
+ }
+ 
+ #weather {
+     width: 100%;
+     height: 45%;
+     background-color: aqua;
+ }
+ 
+ .weather {
+     text-align: center;
+     padding: 5px;
+ }
+ 
+ #temperature {
+     font-size: 30px;
+ }
+ 
+ #temperature::After {
+     content: "º";
+     width: 1px;
+ }
+ 
+ #description {
+     padding: 10px;
+ }
+ 
+ .col-xs-5 {
+     width: 50%;
+     position: absolute;
+     margin-left: 50%;
+     z-index: 10;
+     opacity: 0.1;
+     height: 100%;
+     transition-duration: 1s;
+ }
+ 
+ .col-xs-5:hover {
+     width: 50%;
+     position: absolute;
+     margin-left: 50%;
+     z-index: 10;
+     opacity: 0.9;
+     height: 100%;
+ }
+ 
+ .col-xs-5.active {
+     width: 50%;
+     position: absolute;
+     margin-left: 50%;
+     z-index: 10;
+     opacity: 0.9;
+     height: 100%;
+     /*     transition-duration: 3s;*/
+ }
+ 
+ .alert-danger {
+     position: absolute;
+     width: 50%;
+     margin-top: 20%;
+     margin: 25%;
+     border-radius: 10%;
+     text-align: center;
+     font-size: 30px;
+     z-index: 100;
+ }
+ 
+ .col-lg-12 {
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .col-xs-12 {
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .row.container {
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .row {
+     height: 100%;
+ }
